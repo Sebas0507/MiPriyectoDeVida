@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProyectoDeVida</title>
+
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+   
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-image: url("bg1.jpg"); /* Imagen de fondo */
+    background-position: center;
+    background-size: cover;
+}
+
+h1{
+    text-align: left;
+}
+
+.blanco{
+    color: rgb(255, 255, 255);
+}
+
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80px; 
+    height: 100vh;
+    background-color: #fff;
+    transition: width 0.3s ease; /* Agrega una transición para que el cambio de tamaño sea suave */
+    z-index: 1000; /* Asegura que esté sobre el contenido */
+    overflow: hidden;
+    background: rgba(0, 0, 0 );
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.sidebar:hover {
+    width: 250px; /* Tamaño cuando se expande */
+
+}
+.main-content {
+    margin-left: 80px; /* Ajusta según el tamaño inicial del sidebar */
+    transition: margin-left 0.3s ease;
+}
+
+
+
+
+
+.sidebar .logo {
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px 15px;
+}
+
+
+
+
+
+.sidebar:hover + .main-content {
+    margin-left: 250px; /* Ajusta cuando el sidebar se expanda */
+
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; /* Color de fondo del nav */
+    z-index: 1000; /* Asegura que el nav esté por encima del contenido */
+    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para darle un efecto elevado */
+}
+
+
+.logo img {
+    width: 43px;
+    border-radius: 50%;
+}
+
+.logo h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-left: 15px;
+    display: none;
+}
+
+.sidebar:hover .logo h2 {
+    display: block;
+}
+
+.sidebar .links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    height: calc(100% - 140px);
+}
+
+.sidebar .links::-webkit-scrollbar {
+    display: none;
+}
+
+.links li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.links li:hover {
+    background: #d5d8dc;
+    color: black;
+}
+
+.links h4 {
+    font-weight: 500;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.sidebar:hover .links h4 {
+    display: block;
+}
+
+.links hr {
+    margin: 10px 8px;
+    border: 1px solid #4c4c4c;
+}
+
+.sidebar:hover .links hr {
+    border-color: transparent;
+}
+
+.links li span {
+    padding: 12px 10px;
+}
+
+.links li a {
+    padding: 10px;
+    display: none;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.sidebar:hover .links li a {
+    display: block;
+
+}
+
+.links .logout-link {
+    margin-top: 20px;
+}
+
+.a,.li:hover {
+color:black;
+}
+
+
+
+.header {
+    position: relative;
+    margin-top: 0;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url(https://carolinahernandezcoaching.es/wp-content/uploads/2020/01/Top-Green-Grass.jpg) center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+
+}
+
+        .breadcrumb {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: rgb(0, 0, 0);
+        }
+
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #ffffff ;    
+            margin: 0;  
+        }  
+
+    footer{
+        background-color: #111;
+    }
+    .footerContainer{
+        width: 100%;
+        padding: 70px 30px 20px ;
+    }
+    .socialIcons{
+        display: flex;
+        justify-content: center;
+    }
+    .socialIcons a{
+        text-decoration: none;
+        padding:  10px;
+        margin: 10px;
+        border-radius: 50%;
+    }
+    .socialIcons a i{
+        font-size: 2em;
+        color: black;
+        opacity: 0,9;
+    }
+
+    .socialIcons img:hover {
+        transform: scale(1.2);
+    }
+
+    .footerNav{
+        margin: 30px 0;
+    }
+    .footerNav ul{
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+    .footerNav ul li a{
+        color:white;
+        margin: 20px;
+        text-decoration: none;
+        font-size: 1.3em;
+        opacity: 0.7;
+        transition: 0.5s;
+
+    }
+    .footerNav ul li a:hover{
+        opacity: 1;
+    }
+    .footerBottom{
+        background-color: #000;
+        padding: 20px;
+        text-align: center;
+    }
+    .footerBottom p{
+        color: white;
+    }
+    .designer{
+        letter-spacing: 1px;
+        font-weight: 400;
+        margin: 0px 5px;
+    }
+      
+
+    header {  
+        display: block;  
+        justify-content: space-between;  
+        align-items: center;  
+        padding: 20px;  
+        background-color:#000000;  
+        position: absolute; 
+        background-size: cover;
+    background-position: center;
+            }  
+
+    .imagen {
+        margin-left: -280px;
+        }  
+
+        .hero {  
+            text-align: center;  
+            padding: 50px 20px;  
+            background: url('img/lago2.jpg') no-repeat center center/cover;  
+            position: relative; 
+            top: 0;
+            left: 0;
+        }  
+
+
+        .hero h1 {  
+            font-size: 36px;  
+        }  
+
+        .hero p {  
+            font-size: 18px;  
+            margin: 20px 0;  
+        }  
+
+        .historia-container {
+            display: flex;
+            align-items: flex-start; /* Alinea los elementos al principio (arriba) */
+            gap: 20px; /* Espacio entre la imagen y el texto */
+            margin-top: 20px;
+        }
+
+        .imagen-texto {
+            max-width: 300px; /* Ajusta el tamaño de la imagen */
+            height: auto;
+            border-radius: 10px; /* Esquinas redondeadas para la imagen */
+        }
+
+        .parrafo1{
+           width: 80%; /* Controla el ancho del contenido */
+            color: black;
+            max-width: 1500px; /* Limita el ancho máximo */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left; /* Alinea el texto a la izquierda */
+            margin-left: 0; /* Mueve el contenido hacia la orilla izquierda */
+            margin-right: auto; /* Asegura que el párrafo quede a la izquierda */
+        }
+
+        .parrafo2 {
+        width: 80%;
+        max-width: 1500px;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin: auto;
+        line-height: 1.1;
+        font-size: 18px;
+        
+        }
+
+        .parrafo3{
+            text-align: left;
+        }
+
+        .fondo{
+            background-color: #eaecee;
+            padding: 20px;
+        }
+
+
+        .redes{
+         margin-left: 1200px;    
+        }
+
+        .redes2{
+         margin-left: 1080px; 
+         margin-bottom: -25px;   
+        }
+        
+
+ 
+</style>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="img/vida.png" alt="logo">
+            <h2 class="blanco">Mi Proyecto de Vida</h2>
+        </div>
+        <ul class="links">
+            <h4 class="blanco">Menú Principal</h4>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/inicio.png"></span>
+                <a class="blanco" href="index.html">Inicio</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/niño.png"></span>
+                <a class="blanco" href="niño.html">niñez</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/joven.png"></span>
+                <a class="blanco" href="joven.html">Adolescencia</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/colegio.png"></span>
+                <a class="blanco" href="actualidad.html">Actualidad</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/hobbie.png"></span>
+                <a class="blanco" href="hobbies.html">Hobbies</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/amigo.png"></span>
+                <a class="blanco" href="cercanos.html">Cercanos</a>
+            </li>
+            <li>
+                <span class="material-symbols-outlined"><img src="img/ojo.png"></span>
+                <a class="blanco" href="vision.html">Vision</a>
+            </li>
+            <hr>
+            <li class="logout-link">
+                <span class="material-symbols-outlined"><img src="img/salir.png"></span>
+                <a class="blanco" href="inicio.html">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </aside>
+<div class="main-content">
+         <header class="header">
+            <div class="breadcrumb">
+            </div>
+            <h1 class="titulo">VISION Y MISION </h1>
+        </header>
+    <section class="hero">  
+            <h1 class="titulo2">Vision</h1>  
+            <p class="parrafo1"> Mi visión es construir una vida equilibrada, en la que mi crecimiento personal, profesional y espiritual se complementen para generar un impacto positivo en quienes me rodean y en la sociedad. Aspiro a un futuro donde el esfuerzo, la innovación y los valores guíen cada una de mis decisiones, permitiéndome alcanzar mis metas y contribuir al bienestar de los demás.
+
+Creo que la espiritualidad es fundamental para mantener una vida con propósito y dirección. Busco fortalecer mi fe y vivir con valores como la gratitud, la empatía y la honestidad, encontrando en ellos la motivación para seguir adelante y superar cualquier desafío.
+
+Mi familia es un pilar esencial en mi vida. Aspiro a brindarles tranquilidad y estabilidad, asegurándome de que siempre cuenten con mi apoyo. Quiero compartir tiempo de calidad con ellos y demostrar con acciones cuánto los valoro, creando recuerdos y fortaleciendo nuestros lazos.
+
+Las amistades verdaderas son aquellas que inspiran y apoyan en todo momento. Mi visión es construir relaciones basadas en la confianza, el respeto y la lealtad, siendo una persona en la que los demás puedan confiar y encontrar apoyo. También quiero rodearme de personas que me motiven a crecer y a seguir aprendiendo.
+
+Profesionalmente, mi meta es especializarme en ingeniería, inteligencia artificial y desarrollo de videojuegos, explorando nuevas formas de innovar y aportar soluciones tecnológicas que transformen la industria. Aspiro a trabajar en empresas líderes y, con el tiempo, desarrollar proyectos propios que dejen una huella en el mundo de la tecnología.
+
+Para lograr todo esto, es fundamental cuidar mi salud física y mental. Quiero mantener un equilibrio en mi vida, adoptando hábitos saludables y priorizando el bienestar en cada aspecto de mi rutina. La disciplina y la constancia serán claves para mantenerme en el camino correcto.
+
+Finalmente, mi visión económica es alcanzar la estabilidad financiera que me permita seguir creciendo, ayudar a mi familia y tener la libertad de invertir en proyectos que realmente me apasionen. A través del esfuerzo, la administración inteligente y la perseverancia, quiero construir un futuro sin preocupaciones económicas, donde pueda enfocarme en lo que realmente importa.
+
+
+            <h1 class="titulo">Mision</h1>
+            <div class="historia-container">
+                <p class="parrafo1">Mi misión es desarrollar mis conocimientos y habilidades en ingeniería, inteligencia artificial y videojuegos, aplicando la innovación y la creatividad para contribuir a la evolución de la tecnología. Busco generar soluciones que mejoren la calidad de vida de las personas y que dejen un impacto positivo en la sociedad.
+
+En el ámbito personal, mi misión es fortalecer mis valores y mi fe, viviendo con integridad y empatía. Quiero ser una persona que inspire y motive a los demás, brindando apoyo a mi familia, amigos y comunidad.
+
+Profesionalmente, me comprometo a aprender de manera constante, enfrentar los desafíos con determinación y esforzarme por alcanzar la excelencia en mi campo. Mi objetivo es formar parte de empresas de alto nivel y, en el futuro, crear mis propios proyectos tecnológicos que ayuden a transformar el mundo.
+
+Además, me esfuerzo por mantener un estilo de vida saludable y equilibrado, asegurando mi bienestar físico y mental. Creo que el éxito no solo se mide por los logros profesionales, sino también por la capacidad de disfrutar la vida, construir relaciones significativas y mantenerse en armonía con uno mismo.
+
+Económicamente, mi misión es administrar con responsabilidad mis recursos para alcanzar la estabilidad financiera, permitiéndome crecer, apoyar a mi familia y tener la libertad de invertir en mi desarrollo personal y profesional.
+            </div>
+
+            <h1 class="titulo">Metas</h1>
+            <div class="historia-container">
+                <p class="parrafo1">Mi propósito es alcanzar un equilibrio entre mi desarrollo personal, profesional y espiritual, asegurándome de que cada meta que me proponga me acerque a una vida plena y significativa. Para lograrlo, he definido mis objetivos en diferentes áreas clave:
+            </div>
+                <ul>
+                    <li class="parrafo1"> <strong>Espiritual:</strong> Quiero fortalecer mi fe y vivir con valores sólidos que guíen mis decisiones. Para ello, me comprometo a dedicar tiempo a la reflexión y la oración, aprender más sobre mi espiritualidad y compartir valores positivos con quienes me rodean.
+                    </li>
+                    <li class="parrafo1"><strong>Familiar:</strong> Mi familia es mi mayor inspiración, y una de mis metas es retribuirles todo su apoyo, asegurándome de que vivan con tranquilidad y bienestar. Deseo compartir más tiempo con ellos, brindarles estabilidad en el futuro y ser un hijo que los haga sentir orgullosos.
+                    </li>   
+                    <li class="parrafo1"> <strong>Amistad:</strong>  Busco rodearme de personas que compartan mis valores y que me impulsen a crecer. Quiero fortalecer mis amistades actuales, apoyando y motivando a mis amigos en sus propios caminos. Además, deseo mejorar mis habilidades sociales para conectar con nuevas personas que aporten valor a mi vida.
+                    </li>
+                    <li class="parrafo1"> <strong> Profesional:</strong>  Aspiro a graduarme como ingeniero en mecatrónica, especializarme en inteligencia artificial y desarrollar proyectos en el campo de los videojuegos. Quiero trabajar en empresas líderes del sector, como PlayStation, y, en el futuro, desarrollar mis propias ideas y contribuir con innovaciones que impacten la industria.
+                    </li>
+                     <li class="parrafo1"> <strong> Salud:</strong>  Mantenerme en óptimas condiciones físicas y mentales es esencial para alcanzar mis objetivos. Me comprometo a adoptar hábitos saludables, como una buena alimentación, ejercicio regular y técnicas de manejo del estrés, asegurando así un equilibrio entre mis responsabilidades y mi bienestar.
+                    </li>
+                    <li class="parrafo1"><strong> Económico:</strong>  Quiero lograr independencia financiera a través de la administración inteligente de mis recursos. Planeo ahorrar, invertir y generar ingresos de manera responsable para asegurarme un futuro estable, donde pueda seguir creciendo, apoyar a mi familia y tener la libertad de emprender mis propios proyectos.
+                    </li>
+
+                    
+                </ul>
+
+    </section> 
+</div>
+<footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><img src="img/face.png"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img src="img/tik.png"></a>
+            <a href="https://x.com/?lang=es&mx=2" target="_blank"><img src="img/x.png"></a>
+        </div>
+        <div class="footerNav">
+            <ul><li><a href="index.html">Home</a></li>
+                <li><a href="niño.html">Niñez</a></li>
+                <li><a href="joven.html">Adolescencia</a></li>
+                <li><a href="actualidad.html">Actualidad</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="vision.html">Vision Y Mision</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Diego Lopez</span></p>
+    </div>
+</footer>
+</body>
+</html>

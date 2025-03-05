@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProyectoDeVida</title>
+
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+   
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-image: url("bg1.jpg"); /* Imagen de fondo */
+    background-position: center;
+    background-size: cover;
+}
+
+h2{
+    text-align: left;
+}
+
+.blanco{
+    color: rgb(255, 255, 255);
+}
+
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80px; 
+    height: 100vh;
+    background-color: #fff;
+    transition: width 0.3s ease; /* Agrega una transición para que el cambio de tamaño sea suave */
+    z-index: 1000; /* Asegura que esté sobre el contenido */
+    overflow: hidden;
+    background: rgba(0, 0, 0 );
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.sidebar:hover {
+    width: 250px; /* Tamaño cuando se expande */
+
+}
+.main-content {
+    margin-left: 80px; /* Ajusta según el tamaño inicial del sidebar */
+    transition: margin-left 0.3s ease;
+}
+
+
+
+
+
+.sidebar .logo {
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px 15px;
+}
+
+
+
+
+
+.sidebar:hover + .main-content {
+    margin-left: 250px; /* Ajusta cuando el sidebar se expanda */
+
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; /* Color de fondo del nav */
+    z-index: 1000; /* Asegura que el nav esté por encima del contenido */
+    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para darle un efecto elevado */
+}
+
+
+.logo img {
+    width: 43px;
+    border-radius: 50%;
+}
+
+.logo h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-left: 15px;
+    display: none;
+}
+
+.sidebar:hover .logo h2 {
+    display: block;
+}
+
+.sidebar .links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    height: calc(100% - 140px);
+}
+
+.sidebar .links::-webkit-scrollbar {
+    display: none;
+}
+
+.links li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.links li:hover {
+    background: #d5d8dc;
+    color: black;
+}
+
+.links h4 {
+    font-weight: 500;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.sidebar:hover .links h4 {
+    display: block;
+}
+
+.links hr {
+    margin: 10px 8px;
+    border: 1px solid #4c4c4c;
+}
+
+.sidebar:hover .links hr {
+    border-color: transparent;
+}
+
+.links li span {
+    padding: 12px 10px;
+}
+
+.links li a {
+    padding: 10px;
+    display: none;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.sidebar:hover .links li a {
+    display: block;
+
+}
+
+.links .logout-link {
+    margin-top: 20px;
+}
+
+.a,.li:hover {
+color:black;
+}
+
+
+
+.header {
+    position: relative;
+    margin-top: 0;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url(https://carolinahernandezcoaching.es/wp-content/uploads/2020/01/Top-Green-Grass.jpg) center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+
+}
+
+        .breadcrumb {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: rgb(0, 0, 0);
+        }
+
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #ffffff ;    
+            margin: 0;  
+        }  
+
+    footer{
+        background-color: #111;
+    }
+    .footerContainer{
+        width: 100%;
+        padding: 70px 30px 20px ;
+    }
+    .socialIcons{
+        display: flex;
+        justify-content: center;
+    }
+    .socialIcons a{
+        text-decoration: none;
+        padding:  10px;
+        margin: 10px;
+        border-radius: 50%;
+    }
+    .socialIcons a i{
+        font-size: 3em;
+        color: black;
+        opacity: 0,9;
+    }
+
+    .socialIcons img:hover {
+        transform: scale(1.2);
+    }
+
+    .footerNav{
+        margin: 30px 0;
+    }
+    .footerNav ul{
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+    .footerNav ul li a{
+        color:white;
+        margin: 20px;
+        text-decoration: none;
+        font-size: 1.3em;
+        opacity: 0.7;
+        transition: 0.5s;
+
+    }
+    .footerNav ul li a:hover{
+        opacity: 1;
+    }
+    .footerBottom{
+        background-color: #000;
+        padding: 20px;
+        text-align: center;
+    }
+    .footerBottom p{
+        color: white;
+    }
+    .designer{
+        letter-spacing: 1px;
+        font-weight: 400;
+        margin: 0px 5px;
+    }
+      
+
+    header {  
+        display: block;  
+        justify-content: space-between;  
+        align-items: center;  
+        padding: 20px;  
+        background-color:#000000;  
+        position: absolute; 
+        background-size: cover;
+    background-position: center;
+            }  
+
+    .imagen {
+        margin-left: -280px;
+        }  
+
+        .hero {  
+            text-align: center;  
+            padding: 50px 20px;  
+            background: url('img/lago2.jpg') no-repeat center center/cover;  
+            position: relative; 
+            top: 0;
+            left: 0;
+        }  
+
+
+        .hero h1 {  
+            font-size: 36px;  
+        }  
+
+        .hero p {  
+            font-size: 18px;  
+            margin: 20px 0;  
+        }  
+
+
+                .historia-container2 {
+            display: flex;
+            align-items: flex-start; /* Alinea los elementos al principio (arriba) */
+            gap: 20px; /* Espacio entre la imagen y el texto */
+            margin-top: 20px;
+            flex-direction: row-reverse;
+
+        }
+
+ .contenedor-principal {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos pasen a otra línea si no caben */
+    gap: 20px; /* Espacio entre las columnas */
+    justify-content: space-between; /* Distribuye los elementos */
+}
+
+.historia-container {
+    flex: 1 1 calc(50% - 20px); /* Cada contenedor ocupa el 50% del espacio menos el gap */
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos al principio (arriba) */
+    gap: 20px; /* Espacio entre la imagen y el texto */
+    margin-top: 20px;
+}
+
+
+        .imagen-texto {
+            max-width: 300px; /* Ajusta el tamaño de la imagen */
+            height: auto;
+            border-radius: 10px; /* Esquinas redondeadas para la imagen */
+        }
+
+        .parrafo1{
+           width: 80%; /* Controla el ancho del contenido */
+            color: black;
+            max-width: 1500px; /* Limita el ancho máximo */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left; /* Alinea el texto a la izquierda */
+            margin-left: 0; /* Mueve el contenido hacia la orilla izquierda */
+            margin-right: auto; /* Asegura que el párrafo quede a la izquierda */
+        }
+
+        .parrafo2 {
+
+      
+        margin-left:500px;
+        
+        }
+
+        .parrafo3{
+    width: 80%; /* Controla el ancho del texto */
+    max-width: 600px; /* Limita el ancho máximo */
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin: 0 auto; /* Centra el párrafo */
+    font-size: 16px; /* Tamaño de letra */
+    line-height: 1.6; /* Espaciado entre líneas */
+        }
+
+        .fondo{
+            background-color: #eaecee;
+            padding: 20px;
+        }
+
+
+        .redes{
+         margin-left: 1200px;    
+        }
+
+        .redes2{
+         margin-left: 1080px; 
+         margin-bottom: -25px;   
+        }
+        
+        /* From Uiverse.io by janisar-hyder */ 
+
+.stack {
+  width: 55%;
+  max-width: 400px;
+  transition: 0.25s ease;
+  &:hover {
+    transform: rotate(5deg);
+    .card:before {
+      transform: translatey(-2%) rotate(-4deg);
+    }
+    .card:after {
+      transform: translatey(2%) rotate(4deg);
+    }
+  }
+}
+
+
+
+.card {
+
+  aspect-ratio: 3 / 2;
+  border: 4px solid;
+  background-color: #fff;
+  position: relative;
+  transition: 0.15s ease;
+  cursor: pointer;
+  padding: 5% 5% 15% 5%;
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 4px solid;
+    background-color: #fff;
+    transform-origin: center center;
+    z-index: -1;
+    transition: 0.15s ease;
+    top: 0;
+    left: 0;
+  }
+
+  &:before {
+    transform: translatey(-2%) rotate(-6deg);
+  }
+
+  &:after {
+    transform: translatey(2%) rotate(6deg);
+  }
+}
+
+.image {
+          width: 100%;
+          height: 300px;
+          background-size: cover;
+          background-position: center;
+          border: 4px solid;
+          background-color: #eee;
+          aspect-ratio: 1 / 1;
+          position: relative;
+          margin-right: -200px;
+        }
+
+.background-image {
+    width: 100%;
+    max-width: 300px; /* Evita que la imagen crezca demasiado */
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #000; /* Agrega color de borde */
+    background-color: #eee;
+    aspect-ratio: 1 / 1; /* Mantiene proporciones cuadradas */
+    position: relative;
+    margin-right: -200px; /* Ajusta según la distribución del contenido */
+}
+
+
+.image1 {
+background-image: url(img/papus.jpg);
+}
+
+.image2 {
+background-image: url(img/apa.jpg);
+}
+
+.browser-warning {
+  margin-bottom: 4rem;
+}
+
+@supports (aspect-ratio: 1 / 1) {
+  .browser-warning {
+    display: none;
+  }
+}
+
+
+</style>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="img/vida.png" alt="logo">
+            <h2 class="blanco">Mi Proyecto de Vida</h2>
+        </div>
+        <ul class="links">
+            <h4 class="blanco">Menú Principal</h4>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/inicio.png"></span>
+                <a class="blanco" href="index.html">Inicio</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/niño.png"></span>
+                <a class="blanco" href="niño.html">niñez</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/joven.png"></span>
+                <a class="blanco" href="joven.html">Adolescencia</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/colegio.png"></span>
+                <a class="blanco" href="actualidad.html">Actualidad</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/hobbie.png"></span>
+                <a class="blanco" href="hobbies.html">Hobbies</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/amigo.png"></span>
+                <a class="blanco" href="cercanos.html">Cercanos</a>
+            </li>
+            <li>
+                <span class="material-symbols-outlined"><img src="img/ojo.png"></span>
+                <a class="blanco" href="vision.html">Vision</a>
+            </li>
+            <hr>
+            <li class="logout-link">
+                <span class="material-symbols-outlined"><img src="img/salir.png"></span>
+                <a class="blanco" href="inicio.html">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </aside>
+<div class="main-content">
+         <header class="header">
+            <div class="breadcrumb">
+            </div>
+            <h1 class="titulo">AMIGOS Y FAMILIARES</h1>
+        </header>
+    
+    <section class="hero">  
+
+            <h2 class="titulo">Amigos</h2>
+            <div class="historia-container2">
+            <p class="browser-warning">
+            </p>
+            <div class="stack">
+              <div class="card">
+                <div class="image image1" ></div>
+              </div>
+            </div>
+                <p class="parrafo1">Conocí a mis amigos el año pasado, en cuarto bachillerato, y desde entonces han sido una parte fundamental de mi vida. Me han enseñado el valor de la amistad, el respeto y la importancia de nunca rendirse.  
+
+Juntos hemos vivido grandes momentos, como ir al cine, visitar parques de diversiones y pasear por el centro comercial. Nos apoyamos en los éxitos y desafíos, confiando plenamente el uno en el otro.  
+
+He aprendido que la verdadera amistad está en el apoyo incondicional. Espero fortalecer nuestros lazos ayudándolos con consejos para que salgan adelante. Aunque la vida nos lleve por distintos caminos, siempre llevaré conmigo los recuerdos y enseñanzas compartidas.
+            </div>
+<br>
+<br>
+<br>
+<br>
+<div class="contenedor-principal">
+    <div class="historia-container">
+        <div class="parrafo">
+            <h2>Padre</h2>
+            <p class="parrafo3">Mi papá me ha enseñado a ser mejor persona, decir siempre la verdad, respetar a los demás y prepararme para el futuro. Siempre ha estado ahí para apoyarme y compartir momentos juntos.</p>
+        </div>
+        <div class="stack">
+            <div class="card background-image" style="background-image: url('img/apa.png');"></div>
+        </div>
+    </div>
+
+    <div class="historia-container">
+        <div class="parrafo">
+            <h2>Madre</h2>
+            <p class="parrafo3">Mi mamá siempre me ha apoyado, pagando mis estudios y brindándome lo necesario para crecer académicamente. Le agradezco su esfuerzo y dedicación.</p>
+        </div>
+        <div class="stack">
+            <div class="card background-image" style="background-image: url('img/ama.jpg');"></div>
+        </div>
+    </div>
+
+    <div class="historia-container">
+        <div class="parrafo">
+            <h2>Abuelos</h2>
+            <p class="parrafo3">Mi abuela me enseñó valores de conducta y siempre estuvo ahí para ayudarme en cualquier problema. Su apoyo y enseñanzas han sido fundamentales en mi vida.</p>
+        </div>
+        <div class="stack">
+            <div class="card background-image" style="background-image: url('img/abuela.jpg');"></div>
+        </div>
+    </div>
+
+    <div class="historia-container">
+        <div class="parrafo">
+            <h2>Tío/Tias</h2>
+            <p class="parrafo3">Mi tío me mostró cómo ser un buen hombre, con principios, responsabilidad y confianza para enfrentar la vida. Mientras tanto mis tias me ayudan mucho en mi higiene bucal y dandome consejos para el estudio.</p>
+        </div>
+        <div class="stack">
+            <div class="card background-image" style="background-image: url('img/tio.png');"></div>
+        </div>
+    </div>
+</div>
+
+    </section> 
+</div>
+<footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><img src="img/face.png"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img src="img/tik.png"></a>
+            <a href="https://x.com/?lang=es&mx=2" target="_blank"><img src="img/x.png"></a>
+        </div>
+        <div class="footerNav">
+            <ul><li><a href="index.html">Home</a></li>
+                <li><a href="niño.html">Niñez</a></li>
+                <li><a href="joven.html">Adolescencia</a></li>
+                <li><a href="actualidad.html">Actualidad</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="vision.html">Vision Y Mision</a></li>
+            </ul>
+        </div>
+        
+        
+    </div>
+    <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Diego Lopez</span></p>
+    </div>
+</footer>
+</body>
+</html>

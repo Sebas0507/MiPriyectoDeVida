@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProyectoDeVida</title>
+
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+   
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-image: url("bg1.jpg"); /* Imagen de fondo */
+    background-position: center;
+    background-size: cover;
+}
+
+.blanco{
+    color: rgb(255, 255, 255);
+}
+
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80px; 
+    height: 100vh;
+    background-color: #fff;
+    transition: width 0.3s ease; /* Agrega una transición para que el cambio de tamaño sea suave */
+    z-index: 1000; /* Asegura que esté sobre el contenido */
+    overflow: hidden;
+    background: rgba(0, 0, 0 );
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.sidebar:hover {
+    width: 250px; /* Tamaño cuando se expande */
+
+}
+.main-content {
+    margin-left: 80px; /* Ajusta según el tamaño inicial del sidebar */
+    transition: margin-left 0.3s ease;
+}
+
+
+h1, h2 {
+    text-align: left;
+}
+
+
+.sidebar .logo {
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px 15px;
+}
+
+
+
+
+
+.sidebar:hover + .main-content {
+    margin-left: 250px; /* Ajusta cuando el sidebar se expanda */
+
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; /* Color de fondo del nav */
+    z-index: 1000; /* Asegura que el nav esté por encima del contenido */
+    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para darle un efecto elevado */
+}
+
+
+.logo img {
+    width: 43px;
+    border-radius: 50%;
+}
+
+.logo h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-left: 15px;
+    display: none;
+}
+
+.sidebar:hover .logo h2 {
+    display: block;
+}
+
+.sidebar .links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    height: calc(100% - 140px);
+}
+
+.sidebar .links::-webkit-scrollbar {
+    display: none;
+}
+
+.links li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.links li:hover {
+    background: #d5d8dc;
+    color: black;
+}
+
+.links h4 {
+    font-weight: 500;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.sidebar:hover .links h4 {
+    display: block;
+}
+
+.links hr {
+    margin: 10px 8px;
+    border: 1px solid #4c4c4c;
+}
+
+.sidebar:hover .links hr {
+    border-color: transparent;
+}
+
+.links li span {
+    padding: 12px 10px;
+}
+
+.links li a {
+    padding: 10px;
+    display: none;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.sidebar:hover .links li a {
+    display: block;
+
+}
+
+.links .logout-link {
+    margin-top: 20px;
+}
+
+.a,.li:hover {
+color:black;
+}
+
+
+
+.header {
+    position: relative;
+    margin-top: 0;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url(https://carolinahernandezcoaching.es/wp-content/uploads/2020/01/Top-Green-Grass.jpg) center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+
+}
+
+        .breadcrumb {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: rgb(0, 0, 0);
+        }
+
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #ffffff ;    
+            margin: 0;  
+        }  
+
+    footer{
+        background-color: #111;
+    }
+    .footerContainer{
+        width: 100%;
+        padding: 70px 30px 20px ;
+    }
+    .socialIcons{
+        display: flex;
+        justify-content: center;
+    }
+    .socialIcons a{
+        text-decoration: none;
+        padding:  10px;
+        margin: 10px;
+        border-radius: 50%;
+    }
+    .socialIcons a i{
+        font-size: 2em;
+        color: black;
+        opacity: 0,9;
+    }
+
+    .socialIcons img:hover {
+        transform: scale(1.2);
+    }
+
+    .footerNav{
+        margin: 30px 0;
+    }
+    .footerNav ul{
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+    .footerNav ul li a{
+        color:white;
+        margin: 20px;
+        text-decoration: none;
+        font-size: 1.3em;
+        opacity: 0.7;
+        transition: 0.5s;
+
+    }
+    .footerNav ul li a:hover{
+        opacity: 1;
+    }
+    .footerBottom{
+        background-color: #000;
+        padding: 20px;
+        text-align: center;
+    }
+    .footerBottom p{
+        color: white;
+    }
+    .designer{
+        letter-spacing: 1px;
+        font-weight: 400;
+        margin: 0px 5px;
+    }
+      
+
+    header {  
+        display: block;  
+        justify-content: space-between;  
+        align-items: center;  
+        padding: 20px;  
+        background-color:#000000;  
+        position: absolute; 
+        background-size: cover;
+    background-position: center;
+            }  
+
+    .imagen {
+        margin-left: -280px;
+        }  
+
+        .hero {  
+            text-align: center;  
+            padding: 50px 20px;  
+            background: url('img/lago2.jpg') no-repeat center center/cover;  
+            position: relative; 
+            top: 0;
+            left: 0;
+        }  
+
+
+        .hero h1 {  
+            font-size: 36px;  
+        }  
+
+        .hero p {  
+            font-size: 18px;  
+            margin: 20px 0;  
+        }  
+
+        .historia-container2 {
+            display: flex;
+            align-items: flex-start; /* Alinea los elementos al principio (arriba) */
+            gap: 20px; /* Espacio entre la imagen y el texto */
+            margin-top: 20px;
+            flex-direction: row-reverse;
+
+        }
+
+        .historia-container {
+            display: flex;
+            align-items: flex-start; /* Alinea los elementos al principio (arriba) */
+            gap: 20px; /* Espacio entre la imagen y el texto */
+            margin-top: 20px;
+            
+
+        }
+
+        .imagen-texto {
+            max-width: 300px; /* Ajusta el tamaño de la imagen */
+            height: auto;
+            border-radius: 10px; /* Esquinas redondeadas para la imagen */
+            flex-direction: row-reverse;
+        }
+
+        .parrafo1{
+           width: 80%; /* Controla el ancho del contenido */
+            color: black;
+            max-width: 1500px; /* Limita el ancho máximo */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left; /* Alinea el texto a la izquierda */
+            margin-left: 0; /* Mueve el contenido hacia la orilla izquierda */
+            margin-right: auto; /* Asegura que el párrafo quede a la izquierda */
+        }
+
+        .parrafo2 {
+        width: 80%;
+        max-width: 1500px;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin: auto;
+        line-height: 1.1;
+        font-size: 18px;
+        
+        }
+
+        .parrafo3{
+            text-align: left;
+        }
+
+        .fondo{
+            background-color: #eaecee;
+            padding: 20px;
+        }
+
+
+        .redes{
+         margin-left: 1200px;    
+        }
+
+        .redes2{
+         margin-left: 1080px; 
+         margin-bottom: -25px;   
+        }
+
+.slider {
+    width: var(--width);
+    height: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        #000 10% 90%,
+        transparent
+    );
+    
+    position: absolute; /* Permite posicionarlo en la página */
+    right: 0; /* Lo mueve a la derecha */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste para centrar mejor */
+}
+
+        .slider .list {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: calc(var(--height) * var(--quantity));
+            position: relative;
+        }
+
+        .slider .list .item {
+            width: var(--width);
+            height: var(--height);
+            position: absolute;
+            top: 100%;
+            animation: autoRun 10s linear infinite;
+            transition: filter 0.5s;
+            animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) - 10s ) !important;
+        }
+
+        .slider .list .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes autoRun {
+            from {
+                top: 100%;
+            }
+            to {
+                top: calc(var(--height) * -1);
+            }
+        }
+
+        .slider:hover .item {
+            animation-play-state: paused !important;
+            filter: grayscale(1);
+        }
+
+        .slider .item:hover {
+            filter: grayscale(0);
+        }
+
+        /* Reverse Animation */
+        .slider[reverse="true"] .item {
+            animation: reversePlay 10s linear infinite;
+        }
+
+        @keyframes reversePlay {
+            from {
+                top: calc(var(--height) * -1);
+            }
+            to {
+                top: 100%;
+            }
+        }
+
+</style>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="img/vida.png" alt="logo">
+            <h2 class="blanco">Mi Proyecto de Vida</h2>
+        </div>
+        <ul class="links">
+            <h4 class="blanco">Menú Principal</h4>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/inicio.png"></span>
+                <a class="blanco" href="index.html">Inicio</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/niño.png"></span>
+                <a class="blanco" href="niño.html">niñez</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/joven.png"></span>
+                <a class="blanco" href="joven.html">Adolescencia</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/colegio.png"></span>
+                <a class="blanco" href="actualidad.html">Actualidad</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/hobbie.png"></span>
+                <a class="blanco" href="hobbies.html">Hobbies</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/amigo.png"></span>
+                <a class="blanco" href="cercanos.html">Cercanos</a>
+            </li>
+            <li>
+                <span class="material-symbols-outlined"><img src="img/ojo.png"></span>
+                <a class="blanco" href="vision.html">Vision</a>
+            </li>
+            <hr>
+            <li class="logout-link">
+                <span class="material-symbols-outlined"><img src="img/salir.png"></span>
+                <a class="blanco" href="inicio.html">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </aside>
+<div class="main-content">
+         <header class="header">
+            <div class="breadcrumb">
+            </div>
+            <h1 class="titulo">ACTUALIDAD</h1>
+        </header>
+    
+    <section class="hero">  
+
+
+            <h1 class="titulo">Actualidad</h1>
+            <div class="historia-container">
+                
+                <p class="parrafo1">Actualmente, estoy en quinto bachillerato en computación, avanzando en mi camino hacia la Ingeniería Mecatrónica. Me sigo formando en desarrollo de videojuegos, inteligencia artificial y robótica, áreas que me apasionan y en las que quiero destacar.En unos meses, participaré nuevamente en un campeonato de robótica en la Universidad Galileo, donde demostraré cuánto he mejorado y aplicaré nuevos conocimientos.También sigo fortaleciendo mis hábitos de estudio y planificación, asegurándome de equilibrar mis responsabilidades con mi bienestar. Cada desafío es una oportunidad para crecer, y estoy listo para lo que viene. ¡Lo mejor está por venir!
+
+            </div>
+
+            <h2 class="titulo">Colegio</h2>
+            <div class="historia-container">
+                <p class="parrafo1">Actualmente, estudio en el Colegio Lehnsen, cursando quinto bachillerato en computación. Aquí he desarrollado mis habilidades en programación, como Python, Java, C++ y HTML, para estar preparado para mis prácticas, donde ayudaré a cada trabajador en sus labores.Ahorita mismo, estoy trabajando en mi seminario, que es mi proyecto de vida, ya aprobado. Con mi grupo, estamos finalizando esta presentación que nos costó mucho hacer, pero que representa nuestro esfuerzo por ganar este último año escolar.
+            </div>
+
+            <h2 class="titulo">Viajes</h2>
+            <div class="historia-container">
+                <p class="parrafo1">Después de seis años, finalmente vuelvo a mi lugar favorito: Hostales Irtra. Este ha sido mi único viaje hasta ahora, pero es un destino especial para mí, lleno de recuerdos y momentos inolvidables. Volver después de tanto tiempo me emociona, ya que podré disfrutar nuevamente de sus atracciones, piscinas y el ambiente que siempre me ha gustado. Este viaje significa mucho para mí, ya que marca un descanso después de tanto esfuerzo en mis estudios. Es una oportunidad para relajarme, divertirme y recargar energías antes de mis próximos desafíos. Aunque mi meta a futuro es viajar a Japón, para conocer su tecnología e innovación en videojuegos, y a Estados Unidos, para visitar a mi tío y sus grandes atracciones, por ahora disfruto al máximo esta experiencia. 
+</div>
+
+            <h2 class="titulo">Lo que espero de la universidad</h2>
+            <div class="historia-container">
+                <p class="parrafo1">Cada vez estoy más cerca de dar el siguiente gran paso en mi vida: la universidad. Actualmente, estoy estudiando para mi examen de admisión con el objetivo de ingresar a la Gran Universidad Galileo y comenzar mi carrera en Ingeniería Mecatrónica.
+
+Estoy emocionado por profundizar en áreas como robótica, inteligencia artificial y desarrollo de software. También espero aprender más sobre cómo mejorar el futuro con maquinarias, como robots y fábricas inteligentes, para ayudar a las personas y hacer la tecnología más accesible y eficiente.
+
+Sé que este nuevo desafío traerá mucho aprendizaje y esfuerzo, pero estoy listo para enfrentarlo con disciplina y dedicación. Además, tendré la oportunidad de aplicar mis conocimientos en Python, Java, C++ y HTML en proyectos más avanzados y prepararme para el mundo laboral.
+
+También espero realizar mis prácticas, donde podré apoyar a profesionales en sus labores y ganar experiencia en el campo tecnológico. Sé que será un proceso exigente, pero tengo claro que cada reto me acercará más a mis metas.
+</div><div class="slider" reverse="true" style="
+            --width: 200px;
+            --height: 200px;
+            --quantity: 8;
+        ">
+            <div class="list">
+                <div class="item" style="--position: 1"><img src="img/yo.jpg"></div>
+                <div class="item" style="--position: 2"><img src="img/compa.jpg"></div>
+                <div class="item" style="--position: 3"><img src="img/chumpa.jpg"></div>
+                <div class="item" style="--position: 4"><img src="img/negros.jpg"></div>
+                <div class="item" style="--position: 5"><img src="img/hoy.jpg" ></div>
+                <div class="item" style="--position: 6"><img src="img/compu.jpg" ></div>
+                <div class="item" style="--position: 7"><img src="img/mama.jpg" ></div>
+                <div class="item" style="--position: 8"><img src="img/playa4.jpg" ></div>
+
+            </div>
+        </div>
+            </div> 
+    </section> 
+
+<footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><img src="img/face.png"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img src="img/tik.png"></a>
+            <a href="https://x.com/?lang=es&mx=2" target="_blank"><img src="img/x.png"></a>
+        </div>
+        <div class="footerNav">
+            <ul><li><a href="index.html">Home</a></li>
+                <li><a href="niño.html">Niñez</a></li>
+                <li><a href="joven.html">Adolescencia</a></li>
+                <li><a href="actualidad.html">Actualidad</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="vision.html">Vision Y Mision</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Diego Lopez</span></p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProyectoDeVida</title>
+
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+   
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-image: url("bg1.jpg"); /* Imagen de fondo */
+    background-position: center;
+    background-size: cover;
+}
+
+    .titulo {  
+        font-size: 35px; 
+        color:white !important;
+    }  
+
+
+    .titulo2{
+        text-align: left;
+    }
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.titulo2 {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.contenido {
+    display: flex;
+    align-items: flex-start;
+}
+
+.contenido img {
+    width: 400px; 
+    height: 400px;
+    margin-right: 10px; 
+}
+
+.texto h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+
+.blanco{
+    color: rgb(255, 255, 255);
+}
+
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80px; 
+    height: 100vh;
+    background-color: #fff;
+    transition: width 0.3s ease; 
+    z-index: 1000; 
+    overflow: hidden;
+    background: rgba(0, 0, 0 );
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.sidebar:hover {
+    width: 250px; 
+
+}
+.main-content {
+    margin-left: 80px; 
+    transition: margin-left 0.3s ease;
+}
+
+
+.sidebar .logo {
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px 15px;
+}
+
+
+
+
+
+.sidebar:hover + .main-content {
+    margin-left: 250px;
+
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; 
+    z-index: 1000; 
+    padding: 10px 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+
+.logo img {
+    width: 43px;
+    border-radius: 50%;
+}
+
+.logo h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-left: 15px;
+    display: none;
+}
+
+.sidebar:hover .logo h2 {
+    display: block;
+}
+
+.sidebar .links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    height: calc(100% - 140px);
+}
+
+.sidebar .links::-webkit-scrollbar {
+    display: none;
+}
+
+.links li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.links li:hover {
+    background: #d5d8dc;
+    color: black;
+}
+
+.links h4 {
+    font-weight: 500;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.sidebar:hover .links h4 {
+    display: block;
+}
+
+.links hr {
+    margin: 10px 8px;
+    border: 1px solid #4c4c4c;
+}
+
+.sidebar:hover .links hr {
+    border-color: transparent;
+}
+
+.links li span {
+    padding: 12px 10px;
+}
+
+.links li a {
+    padding: 10px;
+    display: none;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.sidebar:hover .links li a {
+    display: block;
+
+}
+
+.links .logout-link {
+    margin-top: 20px;
+}
+
+.a,.li:hover {
+color:black;
+}
+
+
+
+.header {
+    position: relative;
+    margin-top: 0;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url(https://carolinahernandezcoaching.es/wp-content/uploads/2020/01/Top-Green-Grass.jpg) center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+
+}
+
+        .breadcrumb {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: rgb(0, 0, 0);
+        }
+
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #ffffff ;    
+            margin: 0;  
+        }  
+
+    footer{
+        background-color: #111;
+    }
+    .footerContainer{
+        width: 100%;
+        padding: 70px 30px 20px ;
+    }
+    .socialIcons{
+        display: flex;
+        justify-content: center;
+    }
+    .socialIcons a{
+        text-decoration: none;
+        padding:  10px;
+        margin: 10px;
+        border-radius: 50%;
+    }
+    .socialIcons a i{
+        font-size: 2em;
+        color: black;
+        opacity: 0,9;
+    }
+
+    .socialIcons img:hover {
+        transform: scale(1.2);
+    }
+
+    .footerNav{
+        margin: 30px 0;
+    }
+    .footerNav ul{
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+    .footerNav ul li a{
+        color:white;
+        margin: 20px;
+        text-decoration: none;
+        font-size: 1.3em;
+        opacity: 0.7;
+        transition: 0.5s;
+
+    }
+    .footerNav ul li a:hover{
+        opacity: 1;
+    }
+    .footerBottom{
+        background-color: #000;
+        padding: 20px;
+        text-align: center;
+    }
+    .footerBottom p{
+        color: white;
+    }
+    .designer{
+        letter-spacing: 1px;
+        font-weight: 400;
+        margin: 0px 5px;
+    }
+      
+
+    header {  
+        display: block;  
+        justify-content: space-between;  
+        align-items: center;  
+        padding: 20px;  
+        background-color:#000000;  
+        position: absolute; 
+        background-size: cover;
+    background-position: center;
+            }  
+
+    .imagen {
+        margin-right: -280px;
+        }  
+
+
+
+        .hero {  
+            text-align: center;  
+            padding: 50px 20px;  
+            background: url('img/lago2.jpg') no-repeat center center/cover;  
+            position: relative; 
+            top: 0;
+            left: 0;
+        }  
+
+
+        .hero h1 {  
+            font-size: 36px;  
+        }  
+
+        .hero p {  
+            font-size: 18px;  
+            margin: 20px 0;  
+        }  
+
+        .historia-container2 {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: flex-start; /* Alinea los elementos al principio */
+            gap: 20px; /* Espacio entre la imagen y el texto */
+            margin-top: 20px;
+        }
+
+        .historia-container {
+            display: flex;
+            align-items: flex-start; 
+            gap: 20px; /* Espacio entre la imagen y el texto */
+            margin-top: 20px;
+        }
+
+        .imagen-texto {
+            max-width: 300px; /* Ajusta el tamaño de la imagen */
+            height: auto;
+            border-radius: 10px; /* Esquinas redondeadas para la imagen */
+        }
+
+        .parrafo1{
+           width: 80%; /* Controla el ancho del contenido */
+            color: black;
+            max-width: 1500px; /* Limita el ancho máximo */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left; /* Alinea el texto a la izquierda */
+            margin-left: 0; /* Mueve el contenido hacia la orilla izquierda */
+            margin-right: auto; /* Asegura que el párrafo quede a la izquierda */
+        }
+
+        .parrafo2 {
+        width: 80%;
+        max-width: 1500px;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin: auto;
+        line-height: 1.1;
+        font-size: 18px;
+        
+        }
+
+        .parrafo3{
+            text-align: left;
+        }
+
+        .fondo{
+            background-color: #eaecee;
+            padding: 20px;
+        }
+
+
+        .redes{
+         margin-left: 1200px;    
+        }
+   
+        .redes2{
+         margin-left: 1080px; 
+         margin-bottom: -25px;   
+        }
+
+.gallery {
+    background-color: #1e272e;
+    margin: 60px; 
+    height: 400px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 12px 45px 45px rgba(0, 0, 0, 0.6);
+}
+
+.container {
+    overflow: hidden;
+    height: 360px;
+    margin: 10px;
+}
+
+.container img {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-out;
+    border: 1px solid #a5b1c2;
+}
+
+.container img:hover {
+    transform: scale(1.1);
+}
+
+/* Modal corregido */
+.modal {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+}
+
+.modal.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.full-img {
+    height: 75%;
+    max-width: 90%;
+    border: 1px solid #a5b1c2;
+    transition: transform 0.3s ease-out;
+    transform: scale(0.5);
+}
+
+.full-img.open {
+    transform: scale(1);
+}
+
+.modal p {
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+}
+
+
+
+
+        
+
+        @media (max-width: 480px) {
+    .main-content {
+        flex-direction: column; 
+    }
+
+    .imagen {
+        margin-left: -25px;
+        }
+
+    .imagen-texto {
+    max-width: 100%; 
+    height: auto;    
+    display: block;  
+    margin: 20px auto; 
+    }   
+
+
+    .historia-container {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .parrafo1 {
+        width: 90%; 
+        padding: 10px;
+        text-align: justify; 
+    }
+
+    .parrafo1, .parrafo2 {
+        width: 90%;  
+        padding: 10px;  
+    }  
+
+    .hero {  
+        padding: 20px; 
+    } 
+
+
+    .titulo {  
+        font-size: 20px; 
+        color:black !important;
+    }  
+
+
+    .titulo2{
+        text-align: left;
+    }
+
+    .redes, .redes2 {
+        margin: 0; /* Elimina márgenes para que no se vean juntos */
+        display: flex;
+        justify-content: center; /* Centra los íconos de redes sociales */
+        gap: 10px; /* Agrega espacio entre los íconos */
+    }
+
+    h1 {
+        font-size: 24px;
+        margin: 0;
+    } 
+
+
+    p {
+        font-size: 16px;  
+    } 
+
+</style>
+    
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="img/vida.png" alt="logo">
+            <h2 class="blanco">Mi Proyecto de Vida</h2>
+        </div>
+        <ul class="links">
+            <h4 class="blanco">Menú Principal</h4>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/inicio.png"></span>
+                <a class="blanco" href="index.html">Inicio</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/niño.png"></span>
+                <a class="blanco" href="niño.html">niñez</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/joven.png"></span>
+                <a class="blanco" href="joven.html">Adolescencia</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/colegio.png"></span>
+                <a class="blanco" href="actualidad.html">Actualidad</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/hobbie.png"></span>
+                <a class="blanco" href="hobbies.html">Hobbies</a>
+            </li>
+            <li >
+                <span class="material-symbols-outlined"><img src="img/amigo.png"></span>
+                <a class="blanco" href="cercanos.html">Cercanos</a>
+            </li>
+            <li>
+                <span class="material-symbols-outlined"><img src="img/ojo.png"></span>
+                <a class="blanco" href="">Vision</a>
+            </li>
+            <hr>
+            <li class="logout-link">
+                <span class="material-symbols-outlined"><img src="img/salir.png"></span>
+                <a class="blanco" href="inicio.html">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </aside>
+<div class="main-content">
+         <header class="header">
+            <div class="breadcrumb">
+            </div>
+            <h1 class="titulo">MI NIÑEZ</h1>
+        </header>
+   
+    <section class="hero">  
+            <h1 class="titulo2">Niñez</h1>  
+            <div class="historia-container2">
+            <img class="imagen-texto" src="img/lego.png">
+            <p  class="parrafo1"> Mi infancia estuvo llena de momentos especiales que me ayudaron a convertirme en la persona que soy hoy. Desde pequeño, siempre fui muy curioso y creativo. Recuerdo que en 2012 me regalaron mi primer set de Lego, un camión de bomberos, y desde ese momento me encantó construir cosas. Pero uno de los momentos más emocionantes fue en 2017, cuando me dieron mi primer gran set de Lego: El Asalto Sigiloso de Lego Ninjago, mi serie favorita. Pasé horas armándolo y disfrutando cada detalle, lo que reforzó aún más mi amor por la construcción y la creatividad. También aprendí sobre la responsabilidad cuando tuve mi primera mascota, un conejo llamado Coco, que me regaló mi mamá. Cuidarlo me enseñó lo importante que es ser responsable con los seres vivos. Además, mi familia siempre estuvo presente en mi crecimiento, enseñándome valores como la paciencia, el orden y el esfuerzo, los cuales han sido fundamentales en mi vida.
+            </div>
+
+    <div class="contenedor">
+        <div class="contenido">
+             <img src="img/colegios.png">
+            <div class="texto">
+                <h2 class="titulo2">Primaria</h2>
+                <p class="parrafo1">Mi etapa en la primaria fue una experiencia de mucho aprendizaje y cambios. Empecé en un colegio pequeño, pero después me trasladé a una institución más grande, lo que al principio fue un reto, pero también una gran oportunidad para conocer más personas y adaptarme a nuevos entornos. En 2016, ingresé al Colegio Lehnsen en segundo primaria, donde fui desarrollando más disciplina y compromiso con mis estudios. Una de las experiencias más importantes que viví en esta etapa fue unirme a los Scouts en 2017. Ahí aprendí valores como el trabajo en equipo, la disciplina y la perseverancia. En 2018 tuve la oportunidad de ir a mi primer campamento, donde puse en práctica todo lo que había aprendido.Finalmente, en 2020, me gradué de primaria, pero lastimosamente mis últimos días en el colegio los tuve que vivir de manera virtual por culpa de la cuarentena del COVID-19. No pude despedirme en persona de mis compañeros ni celebrar como se hace normalmente, lo cual fue triste, pero aun así logré completar esta etapa con esfuerzo y dedicación.
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div class="contenido">
+            <div class="texto">
+                <h2 class="titulo2">Viajes en familia</h2>
+                <p class="parrafo3">Siempre he valorado mucho los momentos que paso con mi familia, y una de las formas en las que más disfrutamos juntos es viajando. Me encanta compartir estos momentos con ellos porque fortalecen nuestra relación y nos permiten crear recuerdos inolvidables. Siempre he pensado que viajar es una manera de desconectarnos de la rutina y disfrutar realmente el tiempo juntos. Por eso, uno de mis propósitos es seguir organizando viajes familiares y, en el futuro, cuando logre estabilidad económica, quiero poder llevar a mis padres a conocer nuevos lugares y asegurarme de que disfruten plenamente su vida. Para mí, la familia es un pilar fundamental, y hacer cosas especiales juntos es una forma de agradecerles todo lo que han hecho por mí.
+            </div>
+        </div>
+    </div>
+
+<div class="gallery">
+    <div class="container">
+        <img src="img/playa.jpg" alt="Aqui fui mi primera vez a la playa de Monterrico construyendo un castillo de arena.">
+    </div> 
+    <div class="container">
+        <img src="img/playa2.jpg" alt="Aqui fui a la playa de San Jose con mi familia en las vacaciones.">
+    </div> 
+    <div class="container">
+        <img src="img/playa3.jpg" alt="Fui por segunda vez a la playa de Monterrico pero fui con los amigos de mi mama y sus hijos.">
+    </div> 
+    <div class="container">
+        <img src="img/irtra.jpg" alt="Mi primera vez en Hostales Irtra en retalhuleu">
+    </div> 
+</div> 
+
+
+<div class="modal">
+    <img src="" alt="" class="full-img">
+    <p class="caption"></p>    
+</div>
+
+    </section> 
+</div>
+<footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><img src="img/face.png"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img src="img/tik.png"></a>
+            <a href="https://x.com/?lang=es&mx=2" target="_blank"><img src="img/x.png"></a>
+        </div>
+        <div class="footerNav">
+            <ul><li><a href="index.html">Home</a></li>
+                <li><a href="niño.html">Niñez</a></li>
+                <li><a href="joven.html">Adolescencia</a></li>
+                <li><a href="actualidad.html">Actualidad</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="vision.html">Vision Y Mision</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">Diego Lopez</span></p>
+    </div>
+</footer>
+
+<script>
+const modal = document.querySelector(".modal");
+const previews = document.querySelectorAll(".gallery img");
+const original = document.querySelector(".full-img");
+const caption = document.querySelector(".caption");
+
+previews.forEach((preview) => {
+    preview.addEventListener("click", () => {
+        modal.classList.add("open");
+        original.classList.add("open");
+        
+
+        original.src = preview.src;
+        
+
+        caption.textContent = preview.alt;
+    });
+});
+
+modal.addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal")) {
+        modal.classList.remove("open");
+        original.classList.remove("open");
+    }
+});
+
+</script>
+
+</body>
+</html>
